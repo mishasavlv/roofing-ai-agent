@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Download File</title>
+    <script>
+        async function downloadFile() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const filename = urlParams.get('file');
+
+            if (filename) {
+                try {
+                    // Fetch the file content from the server
+                    const response = await fetch('https://swchatbot-2d76ae6014d8.herokuapp.com/tmp/' + filename);
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    const blob = await response.blob();
+
+                    // Create a link element to trigger the download
+                    const link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = filename;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+
+                    // Close the current window (if allowed)
+                    window.close();
+                } catch (error) {
+                    console.error('There was a problem with the fetch operation:', error);
+                    alert('Failed to download the file.');
+                }
+            } else {
+                alert('No file specified for download.');
+            }
+        }
+    </script>
+</head>
+<body onload="downloadFile()">
+    <p>Your download should start automatically. If not, please check your browser settings.</p>
+</body>
+</html>

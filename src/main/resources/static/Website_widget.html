@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatwoot Contractor Website Inbox</title>
+</head>
+<body>
+    <h1>Chatwoot Contractor Website Inbox</h1>
+    <p>This is a test page.</p>
+
+    <!-- Chatwoot Chatbot Script -->
+	<script>
+	  (function(d,t) {
+	    var BASE_URL="https://chat.servicewhale.com";
+	    var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	    g.src=BASE_URL+"/packs/js/sdk.js";
+	    g.async = true;
+	    s.parentNode.insertBefore(g,s);
+	    g.onload=function(){
+	      window.chatwootSDK.run({
+	        websiteToken: 'xQAdxHhdPhQqyKVT54HbQ5Hy',
+	        baseUrl: BASE_URL
+	      })
+	    }
+	  })(document,"script");
+	</script>
+
+
+
+</body>
+</html>
