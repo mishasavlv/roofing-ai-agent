@@ -8,7 +8,7 @@ Demo: https://roofing-ai-agent-poc-oe2dj.ondigitalocean.app/roofing_ai_agent_dem
 ### AI Agent
 * Uses a vector storage database of PDF product brochures and RAG to answer questions about products and give recommendations.
 * Creates job price estimates (generates quotes) for the user by asking questions and forming a JSON from the customer's responses.
-    * The JSON is sent to my Java middleware which calls external tools to calculate the price and then return it to the LLM.
+    * The JSON is sent to my Java middleware which calls external tools to calculate the price and then return the price to the LLM.
 * Takes customer info to schedule an appointment, creates a JSON with the info which is sent to an external tool by middleware.
 * Agent instructions and parameters like top_p and temperature tune/sandbox behavior and provide a specific workflow.
     * Instructions can also tune things like product recommendations as needed by the contractor.
